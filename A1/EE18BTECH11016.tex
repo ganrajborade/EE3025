@@ -197,28 +197,25 @@ x, \quad i,j = 0,1, \ldots, N-1
 
 
 \item
-Properties :
-\begin{enumerate}
-	\item \[ W^{k+N/2}_{N} = - W^{k}_{N} \] 
-	\item \[ W^{k+N}_{N} =  W^{k}_{N} \] 
-	\item \[ W^{2}_{N} =  W_{N/2} \] 
-\end{enumerate}
-\item 
-Using properties to derive FFT from DFT :
+Using the property of complex exponentials :
+\begin{align}
+	 W^{2}_{N} =  W_{N/2}  
+\end{align}
+
 \begin{align}
 \mathcal X(k) &=  \sum_{n=0}^{N-1} x(n)W^{kn}_{N}, \quad k=0,1, \ldots, N-1 \\
 &= \sum_{n=even} x(n)W^{kn}_{N} + \sum_{n=odd} x(n)W^{kn}_{N} \\
 &= \sum_{m=0}^{2} x(2m)W^{2mk}_{N} + \sum_{m=0}^{2} x(2m+1)W^{(2m+1)k}_{N} 
 \end{align}
-using property (c), we get,
+using property above property, we get,
 \begin{align}
 \mathcal X(k) &= \sum_{m=0}^{2} x(2m)W^{mk}_{N/2} + W^{k}_{N} \sum_{m=0}^{2} x(2m+1)W^{mk}_{N/2} \\
 &= X_{1}(k) + W^{k}_{N}X_{2}(k)
 \end{align}
 
 \begin{itemize}
-	\item X\textsubscript{1}(k) and X\textsubscript{2}(k) are 3 point DFTs of x(2m) and x(2m+1) , m=0,1,2.
-	\item X\textsubscript{1}(k) and X\textsubscript{2}(k) are periodic, Hence X\textsubscript{1}(k+3) = X\textsubscript{1}(k) and X\textsubscript{2}(k+3) = X\textsubscript{1}(k).
+	\item Here,X\textsubscript{1}(k) and X\textsubscript{2}(k) are 3 point DFTs of x(2m) and x(2m+1) , m=0,1,2.
+	\item And X\textsubscript{1}(k) and X\textsubscript{2}(k) are periodic, Hence X\textsubscript{1}(k+3) = X\textsubscript{1}(k) and X\textsubscript{2}(k+3) = X\textsubscript{1}(k).
 \end{itemize}
 
 \item Calculating X1 and X2
@@ -226,16 +223,7 @@ using property (c), we get,
 X_{1}(k) = \sum_{m=0}^{2} x(2m)W^{mk}_{3} \\
 X_{2}(k) = \sum_{m=0}^{2} x(2m+1)W^{mk}_{3}
 \end{align}
-\begin{comment}
-\begin{itemize}
-\item X\textsubscript{1}(0) = x(0)$W_{3}^0$ + x(2)$W_{3}^0$ + x(4)$W_{3}^0$
-\item X\textsubscript{1}(1) = x(0)$W_{3}^0$ + x(2)$W_{3}^1$ + x(4)$W_{3}^2$
-\item X\textsubscript{1}(2) = x(0)$W_{3}^0$ + x(2)$W_{3}^2$ + x(4)$W_{3}^4$
-\item X\textsubscript{2}(0) = x(1)$W_{3}^0$ + x(3)$W_{3}^0$ + x(5)$W_{3}^0$
-\item X\textsubscript{2}(1) = x(1)$W_{3}^0$ + x(3)$W_{3}^1$ + x(5)$W_{3}^2$
-\item X\textsubscript{2}(2) = x(1)$W_{3}^0$ + x(3)$W_{3}^2$ + x(5)$W_{3}^4$ 
-\end{itemize}
-\end{comment}
+
 \begin{equation}
 \begin{bmatrix}
 X_{1}(0) \\ 
@@ -268,17 +256,7 @@ x(5)
 \begin{align}
 X(k) = X_{1}(k) + W^{k}_{N}X_{2}(k)
 \end{align}
-\begin{comment}
-\begin{itemize}
-\item X(0) = X\textsubscript{1}(0) + $W_{6}^0$X\textsubscript{2}(0)
-\item X(1) = X\textsubscript{1}(1) + $W_{6}^1$X\textsubscript{2}(1)
-\item X(2) = X\textsubscript{1}(2) + $W_{6}^2$X\textsubscript{2}(2)
-\item X(3) = X\textsubscript{1}(0) + $W_{6}^3$X\textsubscript{2}(0)
-\item X(4) = X\textsubscript{1}(1) + $W_{6}^4$X\textsubscript{2}(1)
-\item X(5) = X\textsubscript{1}(2) + $W_{6}^5$X\textsubscript{2}(2)
 
-\end{itemize}
-\end{comment}
 \begin{equation}
 \begin{bmatrix}
 X(0) \\ 
