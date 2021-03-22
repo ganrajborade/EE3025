@@ -4,10 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def DFT(x):
-    '''
-    :param x: Time domain Signal
-    :return: DFT of x --> X(k)
-    '''
+
     N = len(x)
     if N == 1:
         return x

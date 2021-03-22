@@ -2,10 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def x_n(N):
-    '''
-    :param N: Length of the signal neeeded
-    :return: x with padded zeros to make signal of length N
-    '''
     x = [1,2,3,4,2,1]
     if N > 6:
         x_new = np.pad(x,(0,N-6),'constant',constant_values=(0))
@@ -15,10 +11,6 @@ def x_n(N):
 
 
 def h_n(N):
-    '''
-    :param N: length
-    :return: impulse response h computed from definition
-    '''
     h = []
     for i in range(N):
         o = 0
